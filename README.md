@@ -2,7 +2,6 @@
 
 ## Description
 * Ce projet est une application WPF nommée « PhotoViewer ».
-* Il a été conçu dans le cadre du TP.Net N° 2 de l'année 2026/2027 pour le cursus 3iL INGÉNIEURS.
 * L'objectif du projet est la création d'un visualiseur de photos exploitant des classes C# et des effets d'interface sous WPF.
 
 ## Fonctionnalités Principales
