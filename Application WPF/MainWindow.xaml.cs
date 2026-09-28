@@ -44,5 +44,18 @@ namespace Application_WPF
                 }
             }
         }
+
+        private void lb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lb.SelectedItem != null)
+            {
+                lb1.Content = lb.SelectedItem.ToString();
+            
+            } else
+            {
+                lb1.Content = "";
+            }
+
+        }
     }
 }

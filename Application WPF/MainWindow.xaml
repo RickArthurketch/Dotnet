@@ -6,30 +6,53 @@
         xmlns:local="clr-namespace:Application_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
+
     <Window.Resources>
         <Style TargetType="{x:Type ListBoxItem}" x:Key="PhotoListBoxStyle">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="MaxHeight" Value="150" />
             <Setter Property="Margin" Value="5" />
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}" >
-                        <Border Padding="4" Background="White" BorderBrush="#22000000" BorderThickness="1">
+                        <Border Padding="4" x:Name="itemBorder" Background="{TemplateBinding Background}" BorderBrush="#22000000" BorderThickness="1">
                             <StackPanel Orientation="Vertical" Width="200" Height="200">
                                 <Border SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                        Background="{TemplateBinding Background}">
+                                Background="White">
                                     <Image Width="150" Height="150" Source="{Binding Mode=OneWay}"
-                                           Opacity="1" Cursor="Hand" x:Name="image"/>
+                                   Opacity="1" Cursor="Hand" x:Name="image"/>
                                 </Border>
                             </StackPanel>
                         </Border>
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#FF514E4E"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
+        <Style x:Key="LabelHeader" TargetType="{x:Type Label}">
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.5" Color="{x:Static SystemColors.AppWorkspaceColor}" />
+                            <GradientStop Offset="2" Color="Transparent" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
     </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -39,6 +62,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
         <DockPanel Name="dockPanel1" Grid.Row="0" Grid.Column="0" Margin="2,2,2,2">
             <Button Content="Sélectionner" DockPanel.Dock="Right" Click="Button_Click" Padding="10,0" Margin="5,0,0,0" />
             <TextBox DockPanel.Dock="Left" x:Name="tb" Height="22" />
@@ -47,8 +71,26 @@
         <GroupBox Height="365" Header="Selection"  Grid.Row="1" VerticalAlignment="Center">
             <ScrollViewer VerticalScrollBarVisibility="Auto" >
                 <ListBox ItemContainerStyle="{StaticResource PhotoListBoxStyle}" x:Name="lb" 
-                         Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" IsSynchronizedWithCurrentItem="True" 
-                         SelectionMode="Extended" ItemsSource="{Binding}" />
+                         Margin="5" IsSynchronizedWithCurrentItem="True" 
+                         SelectionMode="Extended" ItemsSource="{Binding}"
+                         SelectionChanged="lb_SelectionChanged"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </ScrollViewer>
+        </GroupBox>
+
+        <GroupBox Header="Propriétés" Grid.Row="1" Grid.Column="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Label Content="Source" Style="{StaticResource LabelHeader}" />
+                    <Label x:Name="lb1" FontWeight="Bold" Background="White" Foreground="#FFE61313" />
+                </StackPanel>
             </ScrollViewer>
         </GroupBox>
     </Grid>
