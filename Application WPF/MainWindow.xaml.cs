@@ -22,6 +22,7 @@ namespace Application_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        Photo ph;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,7 +51,8 @@ namespace Application_WPF
             if (lb.SelectedItem != null)
             {
                 lb1.Content = lb.SelectedItem.ToString();
-            
+                ph = new Photo(lb.SelectedItem.ToString());
+
             } else
             {
                 lb1.Content = "";
