@@ -59,5 +59,16 @@ namespace Application_WPF
             }
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Diaporama dp = new Diaporama();
+            foreach (var chemin_image in lb.Items)
+            {
+                dp.sDiapo.Add(chemin_image.ToString());
+            }
+
+            dp.ShowDialog();
+        }
     }
 }
