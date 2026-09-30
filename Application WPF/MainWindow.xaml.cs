@@ -31,7 +31,7 @@ namespace Application_WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.Description = "Sélectionnez un répertoire d'images PNG";
+            dialog.Description = "Sélectionnez un répertoire d'images JPEG";
 
             if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -39,7 +39,7 @@ namespace Application_WPF
                 lb.Items.Clear();
 
                 DirectoryInfo di = new DirectoryInfo(tb.Text);
-                foreach (FileInfo fi in di.GetFiles("*.png"))
+                foreach (FileInfo fi in di.GetFiles("*.jpg"))
                 {
                     lb.Items.Add(fi.FullName);
                 }
@@ -50,12 +50,12 @@ namespace Application_WPF
         {
             if (lb.SelectedItem != null)
             {
-                lb1.Content = lb.SelectedItem.ToString();
                 ph = new Photo(lb.SelectedItem.ToString());
+                PanelProprietes.DataContext = ph;
 
             } else
             {
-                lb1.Content = "";
+                PanelProprietes.DataContext = null;
             }
 
         }

@@ -87,9 +87,28 @@
 
         <GroupBox Header="Propriétés" Grid.Row="1" Grid.Column="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel>
+                <StackPanel x:Name="PanelProprietes">
                     <Label Content="Source" Style="{StaticResource LabelHeader}" />
-                    <Label x:Name="lb1" FontWeight="Bold" Background="White" Foreground="#FFE61313" />
+                    <Label Content="{Binding Source}" Background="White" Foreground="#FFE61313" />
+
+                    <Label Content="Titre" Style="{StaticResource LabelHeader}" />
+                    <Label Content="{Binding Titre}" Background="White" Foreground="#FFE61313" />
+
+                    <Label Content="Appareil Photo" Style="{StaticResource LabelHeader}" />
+                    <Label Content="{Binding Camera}" Background="White" Foreground="#FFE61313" />
+
+                    <Label Content="Application" Style="{StaticResource LabelHeader}" />
+                    <Label Content="{Binding Application}" Background="White" Foreground="#FFE61313" />
+
+                    
+                    <Label Content="Temps d'exposition" Style="{StaticResource LabelHeader}" />
+                    <Label Content="{Binding IsoSpeed}" Background="White" Foreground="#FFE61313" />
+
+                    <Label Content="Ouverture" Style="{StaticResource LabelHeader}" />
+                    <Label Content="{Binding Ouverture}" Background="White" Foreground="#FFE61313" />
+
+                    <Label Content="Distance Focale" Style="{StaticResource LabelHeader}" />
+                    <Label Content="{Binding DistanceFocale}" Background="White" Foreground="#FFE61313" />
                 </StackPanel>
             </ScrollViewer>
         </GroupBox>

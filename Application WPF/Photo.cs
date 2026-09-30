@@ -29,6 +29,7 @@ namespace Application_WPF
             }
         }
 
+
         public string Titre
         {
             get
@@ -123,7 +124,7 @@ namespace Application_WPF
             return _path;
         }
 
-        string Source
+        public string Source
         {
             get { return _path; }
         }
