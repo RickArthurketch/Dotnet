@@ -15,7 +15,7 @@ namespace Web_Services
 {
     public partial class Form1 : Form
     {
-        const String sKey1 = "6mgKN8cMXWG93TYJJbcHyFM6Ad86rigyGLNMNkth6whi47HrIRvSJQQJ99CIACi5YpzXJ3w3AAAFACOG72Ek";
+        const string sKey1 = "";
         const String sEndPoint = "https://tpvision.cognitiveservices.azure.com/";
 
         public Form1()
