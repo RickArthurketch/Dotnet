@@ -1,0 +1,44 @@
+# ==========================================
+# Fichiers de compilation et de génération
+# ==========================================
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+Publish/
+publish/
+
+# ==========================================
+# Fichiers spécifiques à l'utilisateur et Visual Studio
+# ==========================================
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.vssscc
+*.vspscc
+
+# ==========================================
+# Dépendances NuGet
+# ==========================================
+*.nupkg
+# Le dossier packages est ignoré, sauf le fichier de configuration de build
+packages/
+!packages/build/
+
+# ==========================================
+# Autres outils (Rider, ReSharper, VS Code)
+# ==========================================
+.idea/
+.vscode/
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# ==========================================
+# Fichiers temporaires et logs
+# ==========================================
+*.log
+*.cache
+*.tmp
+*.bak
