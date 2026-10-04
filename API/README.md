@@ -32,5 +32,3 @@ L'application est divisée en deux onglets principaux :
 * **Packages NuGet requis :**
   * `Azure.AI.Vision.ImageAnalysis` (version préliminaire / beta) - Pour l'API Microsoft.
   * `Newtonsoft.Json` - Pour la manipulation, la sérialisation et la désérialisation des requêtes/réponses JSON de l'API YouSign.
-
-## ⚙️ Installation et Configuration
